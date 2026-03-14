@@ -34,6 +34,119 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 
+    <!-- ── PAGE LOADER STYLES ── -->
+    <style>
+        /* ── Loader overlay ── */
+        #page-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: #020209;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        #page-loader.loader-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        /* Prevent scroll while loader is visible */
+        body.loading {
+            overflow: hidden;
+        }
+
+        /* ── Logo mark ── */
+        .loader-logo {
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.02em;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: loaderFadeUp 0.5s ease 0.1s forwards;
+        }
+
+        .loader-logo .ldot {
+            background: linear-gradient(135deg, #a78bfa, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ── Progress bar container ── */
+        .loader-bar-wrap {
+            width: min(260px, 60vw);
+            height: 2px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 100px;
+            overflow: hidden;
+            opacity: 0;
+            animation: loaderFadeUp 0.5s ease 0.25s forwards;
+        }
+
+        .loader-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #a78bfa, #60a5fa);
+            border-radius: 100px;
+            transition: width 0.05s linear;
+            box-shadow: 0 0 8px rgba(167,139,250,0.6);
+        }
+
+        /* ── Typing status line ── */
+        .loader-status {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.35);
+            letter-spacing: 0.04em;
+            min-height: 1.2em;
+            opacity: 0;
+            animation: loaderFadeUp 0.5s ease 0.35s forwards;
+        }
+
+        .loader-status::after {
+            content: '▋';
+            animation: blink 0.8s step-end infinite;
+            color: #a78bfa;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0; }
+        }
+
+        @keyframes loaderFadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Subtle background orbs (match hero) ── */
+        .loader-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+        }
+
+        .loader-orb-1 {
+            width: 400px; height: 400px;
+            top: -100px; left: -120px;
+            background: radial-gradient(circle, rgba(139,92,246,0.18) 0%, transparent 70%);
+        }
+
+        .loader-orb-2 {
+            width: 350px; height: 350px;
+            bottom: -80px; right: -80px;
+            background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
+        }
+    </style>
+
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
@@ -59,7 +172,21 @@
     </script>
 </head>
 
-<body>
+<body class="loading">
+
+    <!-- ══════════════════════════════════════════
+         PAGE LOADER
+    ══════════════════════════════════════════ -->
+    <div id="page-loader" role="status" aria-label="Loading page">
+        <div class="loader-orb loader-orb-1"></div>
+        <div class="loader-orb loader-orb-2"></div>
+        <div class="loader-logo">Arpit<span class="ldot">.</span></div>
+        <div class="loader-bar-wrap">
+            <div class="loader-bar" id="loaderBar"></div>
+        </div>
+        <div class="loader-status" id="loaderStatus">initializing</div>
+    </div>
+    <!-- ══════════════════════════════════════════ -->
 
     <div class="cursor" id="cursor"></div>
     <div class="cursor-ring" id="cursorRing"></div>
@@ -577,6 +704,92 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="script.js"></script>
-</body>
 
+    <!-- ── PAGE LOADER SCRIPT ── -->
+    <script>
+    (function () {
+        const loader   = document.getElementById('page-loader');
+        const bar      = document.getElementById('loaderBar');
+        const status   = document.getElementById('loaderStatus');
+
+        // Statuses that cycle while loading
+        const messages = [
+            'initializing',
+            'loading assets',
+            'compiling styles',
+            'rendering portfolio',
+            'almost ready',
+        ];
+
+        let progress  = 0;
+        let msgIndex  = 0;
+        let rafId     = null;
+        let startTime = performance.now();
+
+        // Minimum display time so the loader is never janky-fast (ms)
+        const MIN_TIME = 1600;
+
+        function setStatus(txt) {
+            status.textContent = txt;
+        }
+
+        function tick(now) {
+            const elapsed = now - startTime;
+
+            // Ease progress toward 90% during the min-time window,
+            // then jump to 100% when the page is actually ready.
+            const target = Math.min(90, (elapsed / MIN_TIME) * 90);
+            progress += (target - progress) * 0.06;
+            bar.style.width = progress + '%';
+
+            // Cycle status text every ~400 ms
+            const newIdx = Math.min(
+                messages.length - 1,
+                Math.floor(elapsed / 400)
+            );
+            if (newIdx !== msgIndex) {
+                msgIndex = newIdx;
+                setStatus(messages[msgIndex]);
+            }
+
+            rafId = requestAnimationFrame(tick);
+        }
+
+        function dismissLoader() {
+            cancelAnimationFrame(rafId);
+
+            // Jump bar to 100%
+            progress = 100;
+            bar.style.width = '100%';
+            setStatus('ready');
+
+            setTimeout(() => {
+                loader.classList.add('loader-hidden');
+                document.body.classList.remove('loading');
+            }, 300); // brief pause at 100% before fade
+        }
+
+        // Start the progress animation immediately
+        rafId = requestAnimationFrame(tick);
+
+        // Dismiss only after BOTH: page load + min display time
+        function tryDismiss() {
+            const elapsed = performance.now() - startTime;
+            const remaining = MIN_TIME - elapsed;
+            if (remaining > 0) {
+                setTimeout(dismissLoader, remaining);
+            } else {
+                dismissLoader();
+            }
+        }
+
+        if (document.readyState === 'complete') {
+            tryDismiss();
+        } else {
+            window.addEventListener('load', tryDismiss);
+        }
+    })();
+    </script>
+
+</body>
 </html>
