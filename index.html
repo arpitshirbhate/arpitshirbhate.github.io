@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary SEO -->
+    <title>Arpit Shirbhate Portfolio</title>
+    <meta name="description" content="Arpit Shirbhate — B.Tech CSE at VIT-AP. Builds web apps, solves DSA problems, and explores AI/ML. Open to internships and collaborations.">
+    <meta name="author" content="Arpit Shirbhate">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#020209">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Arpit Shirbhate | CS Student &amp; Developer">
+    <meta property="og:description" content="B.Tech CSE student at VIT-AP. Building projects with Java, Python, DSA and AI/ML. Open to internships and collaborations.">
+    <meta property="og:image" content="assets/Image11.png">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Arpit Shirbhate | CS Student &amp; Developer">
+    <meta name="twitter:description" content="B.Tech CSE student at VIT-AP. Building projects with Java, Python, DSA and AI/ML. Open to internships and collaborations.">
+    <meta name="twitter:image" content="assets/Image11.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/Logo.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Arpit Shirbhate",
+        "jobTitle": "Computer Science Student",
+        "description": "B.Tech CSE sophomore at VIT Andhra Pradesh. Building projects with Java, Python, DSA, and AI/ML.",
+        "email": "arpitshirbhate2@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Amravati",
+            "addressRegion": "Maharashtra",
+            "addressCountry": "IN"
+        },
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "Vellore Institute of Technology, Andhra Pradesh"
+        },
+        "sameAs": ["https://www.linkedin.com/in/arpit-shirbhate"],
+        "knowsAbout": ["Java", "Python", "Data Structures and Algorithms", "AI/ML", "Web Development", "OOP", "SQL"]
+    }
+    </script>
+</head>
+
+<body>
+
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- ── NAV ── -->
+    <nav id="navbar" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">Arpit.<span class="logo-dot">.</span></a>
+            <div class="nav-links">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Work</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <!-- Mobile fullscreen overlay -->
+        <div class="nav-mobile" id="navMobile">
+            <div class="nav-mobile-links">
+                <a href="#home" class="nm-link"><span class="nm-num">01</span>Home</a>
+                <a href="#about" class="nm-link"><span class="nm-num">02</span>About</a>
+                <a href="#projects" class="nm-link"><span class="nm-num">03</span>Work</a>
+                <a href="#skills" class="nm-link"><span class="nm-num">04</span>Skills</a>
+                <a href="#contact" class="nm-link"><span class="nm-num">05</span>Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+
+    <!-- ── HERO ── -->
+    <section class="hero" id="home">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="hero-glow"></div>
+
+        <div class="hero-inner">
+            <!-- Left: text -->
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <span class="status-dot"></span>
+                    CS Sophomore · VIT AP · Data Science &amp; AI Enthusiast
+                </div>
+                <h1 class="hero-heading">
+                    Hi, I'm<br>
+                    <span class="gradient-text">Arpit</span><br>
+                    Shirbhate.
+                </h1>
+                <p class="hero-desc">
+                    Computer Science student at VIT focused on building AI, data science, and developer tools that solve real-world problems.
+                </p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+                </div>
+                <div class="hero-scroll-hint">
+                    <div class="scroll-line"></div>
+                    <span>Scroll to explore</span>
+                </div>
+            </div>
+
+            <!-- Right: code card -->
+            <div class="hero-code-card">
+                <div class="code-card-header">
+                    <div class="code-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="code-filename">arpit.js</div>
+                </div>
+                <div class="code-card-body">
+                    <div class="code-line"><span class="ck">const</span> <span class="cv">arpit</span> <span class="co">=</span> {</div>
+                    <div class="code-line ci1"><span class="ck2">name</span><span class="co">:</span> <span class="cs">"Arpit Shirbhate"</span><span class="co">,</span></div>
+                    <div class="code-line ci1"><span class="ck2">role</span><span class="co">:</span> <span class="cs">"CS Student"</span><span class="co">,</span></div>
+                    <div class="code-line ci1"><span class="ck2">university</span><span class="co">:</span> <span class="cs">"VIT-AP"</span><span class="co">,</span></div>
+                    <div class="code-line ci1"><span class="ck2">skills</span><span class="co">:</span> [</div>
+                    <div class="code-line ci2"><span class="cs">"Java"</span><span class="co">,</span> <span class="cs">"Python"</span><span class="co">,</span> <span class="cs">"DSA"</span><span class="co">,</span></div>
+                    <div class="code-line ci2"><span class="cs">"Data Science"</span><span class="co">,</span> <span class="cs">"AI/ML"</span></div>
+                    <div class="code-line ci1">]<span class="co">,</span></div>
+                    <div class="code-line ci1"><span class="ck2">isPassionate</span><span class="co">:</span> <span class="cb">true</span><span class="co">,</span></div>
+                    <div class="code-line ci1"><span class="ck2">status</span><span class="co">:</span> <span class="cs">"Open to opportunities"</span></div>
+                    <div class="code-line">}</div>
+                    <div class="code-line">&nbsp;</div>
+                    <div class="code-line"><span class="cc">// Currently focused on:</span></div>
+                    <div class="code-line"><span class="cc">// Data Science &amp; ML 📊</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Marquee -->
+        <div class="hero-marquee">
+            <div class="marquee-track">
+                <span>Java</span><span class="msep">✦</span>
+                <span>OOP</span><span class="msep">✦</span>
+                <span>DSA</span><span class="msep">✦</span>
+                <span>Python</span><span class="msep">✦</span>
+                <span>SQL</span><span class="msep">✦</span>
+                <span>Arduino</span><span class="msep">✦</span>
+                <span>Data Science</span><span class="msep">✦</span>
+                <span>AI / ML</span><span class="msep">✦</span>
+                <span>React</span><span class="msep">✦</span>
+                <span>Node.js</span><span class="msep">✦</span>
+                <span>Java</span><span class="msep">✦</span>
+                <span>OOP</span><span class="msep">✦</span>
+                <span>DSA</span><span class="msep">✦</span>
+                <span>Python</span><span class="msep">✦</span>
+                <span>SQL</span><span class="msep">✦</span>
+                <span>Arduino</span><span class="msep">✦</span>
+                <span>Data Science</span><span class="msep">✦</span>
+                <span>AI / ML</span><span class="msep">✦</span>
+                <span>React</span><span class="msep">✦</span>
+                <span>Node.js</span><span class="msep">✦</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── ABOUT ── -->
+    <section class="about" id="about">
+        <div class="about-inner">
+            <div class="about-content reveal">
+                <div class="label-tag">01 — About Me</div>
+                <h2 class="section-heading">Learning by building,<br><em>growing by doing.</em></h2>
+                <p>I'm a Computer Science sophomore at Vellore Institute of Technology, Andhra Pradesh — with solid
+                    skills in Java and a hunger to explore everything tech has to offer.</p>
+                <p>From self-studying DSA and OOP to experimenting with Arduino hardware, I believe the best way to
+                    learn is to build things. I document everything on GitHub.</p>
+                <p>Currently serving as a <strong>Core Member of the Microsoft Student Chapter, VIT-AP</strong>,
+                    collaborating on campus tech initiatives and events.</p>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-num">5<span>+</span></div>
+                        <div class="stat-lbl">Certifications</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num">1.5<span>y</span></div>
+                        <div class="stat-lbl">Self Learning</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num gradient-text">MS<span>C</span></div>
+                        <div class="stat-lbl">Core Member</div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-visual reveal">
+                <div class="photo-frame">
+                    <img src="assets/Image11.png" alt="Arpit Shirbhate — CS Student at VIT Andhra Pradesh" loading="lazy">
+                    <div class="photo-glow"></div>
+                </div>
+                <div class="about-badge ab1 floating">
+                    <div class="ab-icon">🎓</div>
+                    <div class="ab-text">
+                        <div class="ab-title">VIT-AP</div>
+                        <div class="ab-sub">B.Tech CSE</div>
+                    </div>
+                </div>
+                <div class="about-badge ab2 floating-delayed">
+                    <div class="ab-icon">📍</div>
+                    <div class="ab-text">
+                        <div class="ab-title">Amravati, MH</div>
+                        <div class="ab-sub">India</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── EXPERIENCE ── -->
+    <section class="experience" id="experience">
+        <div class="exp-inner">
+            <div class="exp-header">
+                <div class="label-tag reveal">02 — Experience &amp; Learning</div>
+                <h2 class="section-heading reveal">My <em>Journey</em></h2>
+            </div>
+
+            <div class="exp-list">
+
+                <div class="exp-entry reveal">
+                    <div class="exp-left">
+                        <div class="exp-year">2024<br><span>Present</span></div>
+                        <span class="exp-badge">Ongoing</span>
+                    </div>
+                    <div class="exp-main">
+                        <div class="exp-type">Education</div>
+                        <h3 class="exp-org">Vellore Institute of Technology, AP</h3>
+                        <div class="exp-role">B.Tech Computer Science &amp; Engineering</div>
+                        <ul class="exp-bullets">
+                            <li>Pursuing B.Tech in CSE with focus on software development, data structures, and algorithms</li>
+                            <li>Maintaining strong academic performance while building practical projects</li>
+                        </ul>
+                        <div class="exp-tags">
+                            <span>Programming</span><span>OOP</span><span>DSA</span><span>Algorithms</span><span>MATLAB</span><span>Verilog/HDL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exp-entry reveal">
+                    <div class="exp-left">
+                        <div class="exp-year">Aug 2025<br><span>Present</span></div>
+                        <span class="exp-badge">8 months</span>
+                    </div>
+                    <div class="exp-main">
+                        <div class="exp-type">Community</div>
+                        <h3 class="exp-org">Microsoft Student Chapter VIT-AP</h3>
+                        <div class="exp-role">Core Member</div>
+                        <ul class="exp-bullets">
+                            <li>Contributing to tech events and community initiatives on campus</li>
+                            <li>Collaborating with peers on Microsoft-focused workshops and activities</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="exp-entry reveal">
+                    <div class="exp-left">
+                        <div class="exp-year">Jun 2024<br><span>Present</span></div>
+                        <span class="exp-badge">1 yr 10 mo</span>
+                    </div>
+                    <div class="exp-main">
+                        <div class="exp-type">Self-Learning</div>
+                        <h3 class="exp-org">Self-Directed Learning</h3>
+                        <div class="exp-role">Independent Developer</div>
+                        <ul class="exp-bullets">
+                            <li>Self-learning Java, OOP, DSA, and SQL from the ground up</li>
+                            <li>Applying concepts through real projects and coding practice</li>
+                            <li>Documenting all learning and code on GitHub</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!--  PROJECTS  -->
+    <section class="projects" id="projects">
+        <div class="projects-inner">
+            <div class="projects-header reveal">
+                <div>
+                    <div class="label-tag">03 — Work</div>
+                    <h2 class="section-heading">Selected <em>Projects</em></h2>
+                </div>
+                <span class="count-badge">004 Projects</span>
+            </div>
+
+            <div class="proj-list">
+                <div class="proj-item reveal">
+                    <div class="proj-index">01</div>
+                    <div class="proj-body">
+                        <div class="proj-top">
+                            <h3 class="proj-title">Portfolio Website</h3>
+                            <div class="proj-links">
+                                <a href="#" class="proj-link" aria-label="Portfolio Website source code">Code ↗</a>
+                                <a href="#" class="proj-link" aria-label="Portfolio Website live demo">Demo ↗</a>
+                            </div>
+                        </div>
+                        <p class="proj-desc">A modern, responsive portfolio website built with vanilla HTML, CSS, and JavaScript. Features smooth animations, custom cursor, and optimized performance.</p>
+                        <div class="proj-tags">
+                            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="proj-item reveal">
+                    <div class="proj-index">02</div>
+                    <div class="proj-body">
+                        <div class="proj-top">
+                            <h3 class="proj-title">Awareness Campaign</h3>
+                            <div class="proj-links">
+                                <a href="#" class="proj-link" aria-label="Awareness Campaign source code">Code ↗</a>
+                                <a href="#" class="proj-link" aria-label="Awareness Campaign live demo">Demo ↗</a>
+                            </div>
+                        </div>
+                        <p class="proj-desc">An interactive website promoting social and digital well-being through games, quizzes, and surveys.</p>
+                        <div class="proj-tags">
+                            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Local Storage</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="proj-item reveal">
+                    <div class="proj-index">03</div>
+                    <div class="proj-body">
+                        <div class="proj-top">
+                            <h3 class="proj-title">Tourism Website</h3>
+                            <div class="proj-links">
+                                <a href="#" class="proj-link" aria-label="Tourism Website source code">Code ↗</a>
+                                <a href="#" class="proj-link" aria-label="Tourism Website project details">Details ↗</a>
+                            </div>
+                        </div>
+                        <p class="proj-desc">User-friendly tourism site with engaging visuals for exploring destinations and planning trips easily.</p>
+                        <div class="proj-tags">
+                            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="proj-item reveal">
+                    <div class="proj-index">04</div>
+                    <div class="proj-body">
+                        <div class="proj-top">
+                            <h3 class="proj-title">IoT Fire-Fighting Robot</h3>
+                            <div class="proj-links">
+                                <a href="#" class="proj-link" aria-label="IoT Fire-Fighting Robot source code">Code ↗</a>
+                            </div>
+                        </div>
+                        <p class="proj-desc">An IoT-enabled robot that detects and extinguishes fires automatically using sensors, motors, and pumps with remote monitoring capability.</p>
+                        <div class="proj-tags">
+                            <span>Arduino</span><span>C/C++</span><span>IoT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--  SKILLS  -->
+    <section class="skills" id="skills">
+        <div class="skills-inner">
+            <div class="skills-head reveal">
+                <div>
+                    <div class="label-tag">04 — Skills</div>
+                    <h2 class="section-heading">What I bring<br><em>to the table</em></h2>
+                </div>
+            </div>
+
+            <div class="skills-layout">
+                <!-- Left: category rows -->
+                <div class="skills-cats">
+                    <div class="scat reveal">
+                        <div class="scat-label">Core Languages</div>
+                        <div class="scat-pills">
+                            <span>C</span><span>C++</span><span>Java</span><span>Python</span><span>JavaScript</span>
+                        </div>
+                    </div>
+                    <div class="scat reveal">
+                        <div class="scat-label">Web Development</div>
+                        <div class="scat-pills">
+                            <span>HTML5</span><span>CSS3</span><span>React</span><span>Node.js</span>
+                        </div>
+                    </div>
+                    <div class="scat reveal">
+                        <div class="scat-label">Data Science &amp; ML</div>
+                        <div class="scat-pills">
+                            <span>NumPy</span><span>Pandas</span><span>Matplotlib</span><span>Scikit-Learn</span><span>Jupyter</span><span>BeautifulSoup</span><span>Seaborn</span><span>Requests</span>
+                        </div>
+                    </div>
+                    <div class="scat reveal">
+                        <div class="scat-label">Tools &amp; Platforms</div>
+                        <div class="scat-pills">
+                            <span>Linux</span><span>Git</span><span>GitHub</span><span>VS Code</span><span>IntelliJ</span><span>Anaconda</span><span>Vercel</span>
+                        </div>
+                    </div>
+                    <div class="scat reveal">
+                        <div class="scat-label">Core Strengths</div>
+                        <div class="scat-pills">
+                            <span>DSA</span><span>OOP</span><span>Problem Solving</span><span>Clean Code</span><span>Logic</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: current focus -->
+                <div class="skills-focus reveal">
+                    <div class="sfocus-header">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2" />
+                        </svg>
+                        Current Focus
+                    </div>
+                    <ol class="sfocus-list">
+                        <li>End-to-end Data Analysis</li>
+                        <li>Machine Learning fundamentals</li>
+                        <li>Web Scraping with Requests &amp; BS4</li>
+                        <li>DSA for technical interviews</li>
+                    </ol>
+                    <div class="sfocus-note">
+                        <span class="status-dot"></span>
+                        Actively learning &amp; building
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--  CONTACT  -->
+    <section class="contact" id="contact">
+        <div class="contact-glow-1"></div>
+        <div class="contact-glow-2"></div>
+        <div class="contact-inner">
+
+            <div class="contact-header reveal">
+                <div class="label-tag">05 &mdash; Get In Touch</div>
+                <h2 class="section-heading">Let's build something<br><em>great together.</em></h2>
+                <p class="contact-intro">Open to collaborations, internships, and meaningful tech conversations. Drop a message &mdash; I reply fast.</p>
+            </div>
+
+            <div class="contact-grid">
+
+                <!-- Left: info -->
+                <div class="contact-info reveal">
+                    <div class="cavail">
+                        <span class="cavail-dot"></span>
+                        <span>Available</span>
+                    </div>
+                    <div class="ctact-cards">
+                        <a href="mailto:arpitshirbhate2@gmail.com" class="ctact-card">
+                            <div class="ctact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                    <polyline points="2,4 12,13 22,4"/>
+                                </svg>
+                            </div>
+                            <div class="ctact-body">
+                                <div class="ctact-label">Email</div>
+                                <div class="ctact-val">arpitshirbhate2@gmail.com</div>
+                            </div>
+                            <div class="ctact-arrow">&rarr;</div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/arpit-shirbhate" target="_blank" rel="noopener noreferrer" class="ctact-card">
+                            <div class="ctact-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M20.447 20.452H16.89v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a1.98 1.98 0 1 1 0-3.96 1.98 1.98 0 0 1 0 3.96zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/>
+                                </svg>
+                            </div>
+                            <div class="ctact-body">
+                                <div class="ctact-label">LinkedIn</div>
+                                <div class="ctact-val">Arpit Shirbhate</div>
+                            </div>
+                            <div class="ctact-arrow">&rarr;</div>
+                        </a>
+                        <a href="tel:+919422665505" class="ctact-card">
+                            <div class="ctact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 5.18 13.1 19.79 19.79 0 0 1 2.1 4.54 2 2 0 0 1 4.11 2.36h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                            </div>
+                            <div class="ctact-body">
+                                <div class="ctact-label">Phone</div>
+                                <div class="ctact-val">+91 94xxxxxx05</div>
+                            </div>
+                            <div class="ctact-arrow">&rarr;</div>
+                        </a>
+                        <div class="ctact-card ctact-card--static">
+                            <div class="ctact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </div>
+                            <div class="ctact-body">
+                                <div class="ctact-label">Location</div>
+                                <div class="ctact-val">Amravati, Maharashtra, India</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: form -->
+                <div class="contact-form reveal">
+                    <div class="cform-card">
+                        <div class="cform-top">
+                            <div class="form-label">Send a Message</div>
+                            <p class="cform-sub">I&rsquo;ll get back to you within 24 hours.</p>
+                        </div>
+                        <div id="formBody">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="fname">Your Name</label>
+                                    <input type="text" id="fname" name="from_name" autocomplete="name" placeholder="e.g. Rahul Sharma">
+                                </div>
+                                <div class="form-group">
+                                    <label for="femail">Email Address</label>
+                                    <input type="email" id="femail" name="from_email" autocomplete="email" placeholder="your@email.com">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="fsubject">Subject</label>
+                                <select id="fsubject" name="subject" autocomplete="off">
+                                    <option value="" disabled selected>Select a topic...</option>
+                                    <option>Internship Opportunity</option>
+                                    <option>Project Collaboration</option>
+                                    <option>Just saying hi!</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="fmessage">Message</label>
+                                <textarea id="fmessage" name="message" autocomplete="off" placeholder="Hi Arpit, I'd love to..."></textarea>
+                            </div>
+                            <button class="btn-submit" onclick="submitForm()">Send Message &rarr;</button>
+                        </div>
+                        <div class="form-success" id="formSuccess">
+                            <div class="success-icon">&#10003;</div>
+                            <h3>Message sent!</h3>
+                            <p>Thanks for reaching out. I'll get back to you soon.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!--  FOOTER  -->
+    <footer aria-label="Site footer">
+        <div class="footer-inner">
+            <span class="footer-copy">&copy; 2026 Arpit Shirbhate. All rights reserved.</span>
+            <span class="footer-info">VIT-AP &middot; B.Tech CSE &middot; Amravati, MH</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
