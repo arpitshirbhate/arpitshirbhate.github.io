@@ -24,7 +24,6 @@ Built from scratch — no frameworks, no build tools, no dependencies beyond a s
 
 ## Screenshots
 
-> _Add a screenshot or screen recording of the live site here._
 
 ---
 
