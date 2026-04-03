@@ -1511,6 +1511,8 @@ footer {
     font-size: 11px;
     color: var(--dim);
     letter-spacing: .07em;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
 }
 
 /*  ANIMATIONS  */
@@ -1626,10 +1628,7 @@ footer {
     .cform-top { align-items: flex-start; }
     .cform-sub { text-align: left; }
     .footer-copy,
-    .footer-info {
-        font-size: 10px;
-        line-height: 1.5;
-    }
+    .footer-info { width: 100%; }
 }
 
 @media (max-width: 600px) {
@@ -1693,7 +1692,6 @@ footer {
     .cform-card { padding: 20px 14px; }
     .btn { padding: 13px 22px; }
     footer { padding: 18px 16px; }
-    .footer-inner { font-size: 12px; }
 }
 
 @media (max-width: 380px) {
