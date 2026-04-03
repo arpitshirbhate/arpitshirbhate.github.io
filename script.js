@@ -3,6 +3,56 @@
         const EMAILJS_SERVICE_ID = 'service_bpi9y6p';
         const EMAILJS_TEMPLATE_ID = 'template_s8p0sga';
         emailjs.init(EMAILJS_PUBLIC_KEY);
+
+        // DYNAMIC DATES
+        (function syncDynamicDates() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const monthYearShort = now.toLocaleString('en-US', { month: 'short', year: 'numeric' });
+
+            function monthsDiff(fromDate, toDate) {
+                let months = (toDate.getFullYear() - fromDate.getFullYear()) * 12;
+                months += toDate.getMonth() - fromDate.getMonth();
+                if (toDate.getDate() < fromDate.getDate()) months -= 1;
+                return Math.max(0, months);
+            }
+
+            function formatDuration(totalMonths) {
+                const years = Math.floor(totalMonths / 12);
+                const months = totalMonths % 12;
+                if (years === 0) return `${months} month${months === 1 ? '' : 's'}`;
+                if (months === 0) return `${years} yr${years === 1 ? '' : 's'}`;
+                return `${years} yr${years === 1 ? '' : 's'} ${months} mo`;
+            }
+
+            const currentYearEl = document.getElementById('currentYear');
+            if (currentYearEl) currentYearEl.textContent = String(year);
+
+            // Generic hook: set dynamic date placeholders from data-date.
+            document.querySelectorAll('[data-date]').forEach(el => {
+                const mode = el.getAttribute('data-date');
+                if (mode === 'year') {
+                    el.textContent = String(year);
+                } else if (mode === 'month-year-short') {
+                    el.textContent = monthYearShort;
+                } else if (mode === 'duration') {
+                    const startRaw = el.getAttribute('data-start');
+                    if (!startRaw) return;
+                    const start = new Date(startRaw);
+                    if (Number.isNaN(start.getTime())) return;
+                    const totalMonths = monthsDiff(start, now);
+                    el.textContent = formatDuration(totalMonths);
+                }
+            });
+
+            // Mobile timeline uses .exp-year::after; keep it synced with the dynamic text.
+            document.querySelectorAll('.exp-year').forEach(el => {
+                const current = el.querySelector('span[data-date]');
+                if (current && current.textContent) {
+                    el.setAttribute('data-current', current.textContent.trim());
+                }
+            });
+        })();
         // ─────────────────────────────────────────────────────────────
         // CURSOR
         const cursor = document.getElementById('cursor');
