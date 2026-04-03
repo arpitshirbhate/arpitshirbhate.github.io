@@ -312,46 +312,70 @@
         <div class="about-inner">
             <div class="about-content reveal">
                 <div class="label-tag">01 — About Me</div>
-                <h2 class="section-heading">Learning by building,<br><em>growing by doing.</em></h2>
-                <p>I'm a Computer Science sophomore at Vellore Institute of Technology, Andhra Pradesh — with solid
-                    skills in Java and a hunger to explore everything tech has to offer.</p>
-                <p>From self-studying DSA and OOP to experimenting with Arduino hardware, I believe the best way to
-                    learn is to build things. I document everything on GitHub.</p>
-                <p>Currently serving as a <strong>Core Member of the Microsoft Student Chapter, VIT-AP</strong>,
-                    collaborating on campus tech initiatives and events.</p>
+                <h2 class="section-heading">I turn curiosity into<br><em>working products.</em></h2>
+                <p class="about-lead">I'm Arpit, a Computer Science sophomore at VIT-AP.</p>
+                <p>I build practical software using strong fundamentals and modern AI tools.</p>
+
+                <div class="about-journey">
+                    <div class="journey-item">
+                        <span class="journey-dot"></span>
+                        <p><strong>DSA &amp; problem solving</strong></p>
+                    </div>
+                    <div class="journey-item">
+                        <span class="journey-dot"></span>
+                        <p><strong>Java</strong> (OOP, Collections)</p>
+                    </div>
+                    <div class="journey-item">
+                        <span class="journey-dot"></span>
+                        <p><strong>Python</strong> (automation &amp; ML basics)</p>
+                    </div>
+                    <div class="journey-item">
+                        <span class="journey-dot"></span>
+                        <p>Building real-world mini projects</p>
+                    </div>
+                </div>
+
                 <div class="about-stats">
                     <div class="stat-card">
                         <div class="stat-num">5<span>+</span></div>
                         <div class="stat-lbl">Certifications</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-num">1.5<span>y</span></div>
-                        <div class="stat-lbl">Self Learning</div>
+                        <div class="stat-num">2-3</div>
+                        <div class="stat-lbl">Projects Built</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-num gradient-text">MS<span>C</span></div>
-                        <div class="stat-lbl">Core Member</div>
+                        <div class="stat-num">100<span>+</span></div>
+                        <div class="stat-lbl">DSA Problems</div>
                     </div>
                 </div>
             </div>
-            <div class="about-visual reveal">
-                <div class="photo-frame">
+            <div class="about-panel reveal">
+                <div class="photo-frame about-photo-frame">
                     <img src="assets/Image11.png" alt="Arpit Shirbhate — CS Student at VIT Andhra Pradesh" loading="lazy">
                     <div class="photo-glow"></div>
+                    <div class="about-photo-tag">Learning!!</div>
                 </div>
-                <div class="about-badge ab1 floating">
-                    <div class="ab-icon">🎓</div>
-                    <div class="ab-text">
-                        <div class="ab-title">VIT-AP</div>
-                        <div class="ab-sub">B.Tech CSE</div>
-                    </div>
+                <div class="about-meta-grid">
+                    <article class="about-meta-card">
+                        <h3>Current Focus</h3>
+                        <div class="about-pills">
+                            <span>Java (OOP, Collections)</span>
+                            <span>Python (Scripting, ML basics)</span>
+                            <span>DSA (Active practice)</span>
+                            <span>AI/ML (Beginner projects)</span>
+                            <span>Web Development (Learning React)</span>
+                        </div>
+                    </article>
+                    <article class="about-meta-card">
+                        <h3>What Drives Me</h3>
+                        <p>I prefer building small, useful products over big unfinished ideas.</p>
+                        <p>I focus on clarity, performance, and real-world usability.</p>
+                    </article>
                 </div>
-                <div class="about-badge ab2 floating-delayed">
-                    <div class="ab-icon">📍</div>
-                    <div class="ab-text">
-                        <div class="ab-title">Amravati, MH</div>
-                        <div class="ab-sub">India</div>
-                    </div>
+                <div class="about-quote">
+                    <span class="about-quote-mark">"</span>
+                    <p>Goal: Ship → Learn → Improve → Repeat</p>
                 </div>
             </div>
         </div>
@@ -369,7 +393,7 @@
 
                 <div class="exp-entry reveal">
                     <div class="exp-left">
-                        <div class="exp-year">2024<br><span>Present</span></div>
+                        <div class="exp-year">2024<br><span data-date="month-year-short">Present</span></div>
                         <span class="exp-badge">Ongoing</span>
                     </div>
                     <div class="exp-main">
@@ -388,8 +412,8 @@
 
                 <div class="exp-entry reveal">
                     <div class="exp-left">
-                        <div class="exp-year">Aug 2025<br><span>Present</span></div>
-                        <span class="exp-badge">8 months</span>
+                        <div class="exp-year">Aug 2025<br><span data-date="month-year-short">Present</span></div>
+                        <span class="exp-badge" data-date="duration" data-start="2025-08-01">9 months</span>
                     </div>
                     <div class="exp-main">
                         <div class="exp-type">Community</div>
@@ -404,8 +428,8 @@
 
                 <div class="exp-entry reveal">
                     <div class="exp-left">
-                        <div class="exp-year">Jun 2024<br><span>Present</span></div>
-                        <span class="exp-badge">1 yr 10 mo</span>
+                        <div class="exp-year">Jun 2024<br><span data-date="month-year-short">Present</span></div>
+                        <span class="exp-badge" data-date="duration" data-start="2024-06-01">1 yr 11 mo</span>
                     </div>
                     <div class="exp-main">
                         <div class="exp-type">Self-Learning</div>
@@ -697,7 +721,7 @@
     <!--  FOOTER  -->
     <footer aria-label="Site footer">
         <div class="footer-inner">
-            <span class="footer-copy">&copy; 2026 Arpit Shirbhate. All rights reserved.</span>
+            <span class="footer-copy">&copy; <span id="currentYear"></span> Arpit Shirbhate. All rights reserved.</span>
             <span class="footer-info">VIT-AP &middot; B.Tech CSE &middot; Amravati, MH</span>
         </div>
     </footer>
