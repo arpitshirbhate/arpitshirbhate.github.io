@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #09090b;
+  --color-primary: #10b981;
+  --color-primary-light: #34d399;
+  --color-primary-dark: #059669;
+  --color-secondary: #6366f1;
+  --color-secondary-light: #818cf8;
+  --color-secondary-dark: #4f46e5;
+  
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-mono: 'Fira Code', 'JetBrains Mono', monospace;
+
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-glow-slow: glow 8s ease-in-out infinite alternate;
+
+  @keyframes glow {
+    0% { transform: scale(1) translate(0px, 0px); opacity: 0.3; }
+    50% { transform: scale(1.1) translate(10px, -20px); opacity: 0.5; }
+    100% { transform: scale(0.9) translate(-10px, 20px); opacity: 0.3; }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+/* Custom Scrollbar - Minimalist Premium Zinc Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b; /* zinc-950 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a; /* zinc-800 */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #10b981; /* primary emerald accent */
+}
+
+/* Custom Premium UI Helper Styles */
+.glass-card {
+  background: rgba(15, 15, 20, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(63, 63, 70, 0.25); /* zinc-700/25 */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-card:hover {
+  border-color: rgba(16, 185, 129, 0.3); /* primary green tint */
+  box-shadow: 0 8px 32px 0 rgba(16, 185, 129, 0.05);
+}
+
+.glass-nav {
+  background: rgba(9, 9, 11, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(63, 63, 70, 0.2);
+}
+
+/* Glowing Spotlights */
+.glow-spotlight-emerald {
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0) 70%);
+}
+
+.glow-spotlight-indigo {
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, rgba(99, 102, 241, 0) 70%);
+}
+
+/* Grid overlay background style (Linear.app / Vercel style) */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(63, 63, 70, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(63, 63, 70, 0.05) 1px, transparent 1px);
+}
+
+/* CLI Text typing cursor animation */
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.cli-cursor::after {
+  content: '█';
+  animation: blink 1s step-start infinite;
+  color: #10b981;
+  margin-left: 4px;
+}

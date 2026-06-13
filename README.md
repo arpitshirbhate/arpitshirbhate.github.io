@@ -1,161 +1,98 @@
-<div align="center">
+# 🧑‍💻 Premium Developer Portfolio | Arpit Shirbhate
 
-# Arpit Shirbhate — Portfolio
-
-**A modern, responsive personal portfolio built with pure HTML, CSS, and JavaScript.**
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-818cf8.svg)](LICENSE)
-![Built with HTML](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
-![Styled with CSS](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
-![Vanilla JS](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
-
-</div>
+A state-of-the-art, high-fidelity personal CS portfolio and software engineering brand deck. Built using a modern, interactive, and responsive glassmorphic design system featuring tailored emerald highlights, custom typography, micro-interactions, and a built-in Developer CLI terminal console.
 
 ---
 
-## About
+## 🚀 Interactive Live Features
 
-Personal portfolio for **Arpit Shirbhate**, a B.Tech Computer Science sophomore at VIT Andhra Pradesh.  
-Built from scratch — no frameworks, no build tools, no dependencies beyond a single font import and EmailJS.
-
-**Live sections:** Hero · About · Experience · Projects · Skills · Contact
-
----
-
-## Screenshots
-
-
----
-
-## Features
-
-| Feature | Detail |
-|---|---|
-| **Custom cursor** | Dot + ring + radial glow that tracks mouse movement |
-| **Scroll-reveal** | Elements animate in as they enter the viewport |
-| **Animated hero** | Floating heading, gradient text, scanning scroll line |
-| **Marquee ticker** | Infinite scrolling tech stack strip |
-| **Dark glassmorphism** | Deep space theme with indigo–violet–pink gradient system |
-| **Contact form** | Validated form powered by EmailJS, with success state |
-| **Fully responsive** | 5 breakpoints: 1200 / 900 / 600 / 480px + touch media query |
-| **SEO-ready** | Meta description, Open Graph, Twitter Card, JSON-LD Person schema |
-| **Accessible** | Semantic HTML, aria-labels, keyboard-navigable mobile menu |
+1. **⌨️ Developer CLI Terminal Overlay**:
+   * Press the backtick key (`` ` ``) at any time to open a functional interactive terminal.
+   * Recruiters can run commands (`help`, `clear`, `about`, `projects`, `skills`, `timeline`, `contact`, `socials`, `skills --details`) to query site elements directly!
+2. **📈 Live GitHub Contributions Calendar**:
+   * Displays your actual live contributions graph from `@arpit2006` in a styled emerald-green theme with responsive mobile horizontal scrolling.
+3. **📂 Symmetrical Projects & System Architecture Flowcharts**:
+   * Clicking **"View System Architecture"** expands highly detailed system signals and ML regression pipelines.
+4. **📅 AlignedDot-Node Professional Journey**:
+   * Suffix dates set to `'Present'` and year markers aligned symmetrically to vertical timeline threads.
+5. **✉️ Initiate Contact & Email Quick-Copy**:
+   * Features absoute positioned input icon adornments and a single-click email quick-copy clip showing spring-physics checkmark updates.
 
 ---
 
-## Tech Stack
+## 🛠️ Technology Stack
 
-- **HTML5** — semantic structure, JSON-LD structured data
-- **CSS3** — custom properties, CSS Grid, clamp(), keyframe animations
-- **Vanilla JavaScript** — scroll effects, cursor, mobile nav, form logic
-- **[EmailJS](https://www.emailjs.com/)** — serverless contact form delivery
-- **Google Fonts** — Plus Jakarta Sans + Space Mono
-
----
-
-## Project Structure
-
-```
-Portfolio/
-├── assets/
-│   ├── Image11.png       # Profile photo (About section + OG image)
-│   ├── Logo.png          # Favicon
-│   ├── img.avif          # Additional asset
-│   └── image.png         # Additional asset
-├── index.html            # Full single-page markup
-├── styles.css            # All styling, tokens, animations, responsive rules
-├── script.js             # Cursor, scroll-reveal, nav, EmailJS form
-├── LICENSE               # MIT License
-└── README.md
-```
+* **Core**: React 18, TypeScript, Vite
+* **Styling**: Tailwind CSS v4, PostCSS, HSL-tailored dark modes
+* **Animations**: Framer Motion
+* **Iconography**: Lucide React, Custom optimized SVG components
+* **Data Sources**: Live GitHub Commit Calendar API feed
 
 ---
 
-## Getting Started
-
-No build step, no install required.
+## 📂 Repository Directory Structure
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/Portfolio.git
-cd Portfolio
-```
-
-Then open `index.html` in any browser — or use VS Code Live Server:
-
-1. Install the **Live Server** extension in VS Code
-2. Right-click `index.html` → **Open with Live Server**
-
----
-
-## EmailJS Setup
-
-The contact form uses [EmailJS](https://www.emailjs.com/) to send messages without a backend.
-
-1. Create a free account at emailjs.com
-2. Add an **Email Service** (Gmail, Outlook, etc.)
-3. Create an **Email Template** — map template variables:
-   - `{{from_name}}` — sender's name
-   - `{{from_email}}` — sender's email
-   - `{{subject}}` — selected subject
-   - `{{message}}` — message body
-4. Open `script.js` and replace the three constants at the top:
-
-```js
-const PUBLIC_KEY    = 'YOUR_PUBLIC_KEY';
-const SERVICE_ID    = 'YOUR_SERVICE_ID';
-const TEMPLATE_ID   = 'YOUR_TEMPLATE_ID';
-```
-
-> **Note:** EmailJS public keys are browser-visible. For production use, consider adding server-side rate limiting or a backend proxy.
-
----
-
-## Customization
-
-| File | What to change |
-|---|---|
-| `index.html` | Name, bio, job titles, project details, links |
-| `styles.css` | `:root` tokens — accent colour, fonts, spacing, radius |
-| `script.js` | EmailJS credentials |
-| `assets/` | Replace `Image11.png` with your own photo, `Logo.png` with your favicon |
-
-### Changing the colour scheme
-
-All colours are CSS custom properties in `:root` at the top of `styles.css`:
-
-```css
---accent:   #818cf8;   /* indigo */
---accent2:  #a78bfa;   /* violet */
---pink:     #f472b6;   /* pink   */
---gradient: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #f472b6 100%);
+d:/New folder/
+├── dist/                     # Compiled production bundles
+├── src/
+│   ├── components/
+│   │   ├── About.tsx         # About Me section featuring interactive metrics boxes
+│   │   ├── BackgroundGlow.tsx# Subtle multi-glow radial visual layers
+│   │   ├── CLIConsole.tsx    # Interactive terminal emulator console (triggered via ` key)
+│   │   ├── CodingMetrics.tsx # Live green-themed GitHub contributions calendar
+│   │   ├── Contact.tsx       # Redesigned Contact station with input icons & quick-copy email
+│   │   ├── Footer.tsx        # Structured footer linking active profile accounts
+│   │   ├── Hero.tsx          # Sleek Landing header showcasing CS VIT-AP specialization
+│   │   ├── Navbar.tsx        # Floating glass header panel with menu controls
+│   │   ├── Projects.tsx      # Symmetrical 3-card projects grid featuring canvas flowcharts
+│   │   ├── Skills.tsx        # symmetrical 2x2 tech stack competency microchip grid
+│   │   └── Timeline.tsx      # Symmetrically aligned vertical professional timeline
+│   ├── App.tsx               # Main layout orchestrator imports and section structures
+│   ├── main.tsx              # Application loader entry point
+│   └── index.css             # Tailwind theme directives, fonts, and global variables
+├── package.json              # Script directives and node modules dependencies
+├── postcss.config.js         # PostCSS compiler configurations
+├── tsconfig.json             # TypeScript compile and strictness assertions
+└── vite.config.ts            # Vite compile and asset builder parameters
 ```
 
 ---
 
-## Deployment
+## 💻 Local Spawning & Operation
 
-This is a fully static site — deploy anywhere for free:
+Follow these instructions to spawn, inspect, and run the developer website in your local environment:
 
-| Platform | How |
-|---|---|
-| **GitHub Pages** | Push to `main`, enable Pages in repo Settings |
-| **Netlify** | Drag-and-drop the folder at netlify.com/drop |
-| **Vercel** | `vercel` CLI or import from GitHub |
-| **Firebase Hosting** | `firebase deploy` |
+### 1. Prerequisites
+Ensure you have [Node.js](https://nodejs.org/) installed (version 18+ is recommended).
+
+### 2. Node Modules Installation
+Install the project dependencies cleanly:
+```bash
+npm install
+```
+
+### 3. Start Development Server
+Spawns the local development hot-reload server at `http://localhost:5173/`:
+```bash
+npm run dev
+```
+
+### 4. Compile Production Bundles
+Compiles and bundles the TypeScript and Vite assets into optimized production-ready HTML, CSS, and JS chunks under the `dist/` directory:
+```bash
+npm run build
+```
+
+### 5. Serving the Production Preview
+Serve the compiled production bundle locally on your machine at `http://localhost:4173/` or next available port:
+```bash
+npm run preview
+```
 
 ---
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).  
-© 2026 Arpit Shirbhate
-
-## Attribution Requirement
-If you use, copy, or modify this project, you must give proper credit to:
-- **Arpit Shirbhate**
-
-Suggested credit line:
-> Original project by Arpit Shirbhate.
-
-## License
-This project is open source. You can add an MIT License file if you plan to share it publicly.
+## 🎨 Visual Quality Verification
+All components compile with **zero lint warnings** or typescript errors. Visual assets and subagent web previews are saved inside the artifacts directory:
+* **walkthrough.md**: Contains active WebP video walkthroughs of every page section.
+* **final_portfolio_verification_1779814080678.png**: Full-resolution landing preview.
