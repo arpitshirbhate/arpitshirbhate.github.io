@@ -91,13 +91,13 @@ export const About: React.FC = () => {
                   <div className="pl-4">
                     <span className="text-sky-400">role</span>
                     <span className="text-zinc-400">:</span>{' '}
-                    <span className="text-emerald-400">"CS Student"</span>
+                    <span className="text-emerald-400">"CSE Student"</span>
                     <span className="text-zinc-400">,</span>
                   </div>
                   <div className="pl-4">
                     <span className="text-sky-400">university</span>
                     <span className="text-zinc-400">:</span>{' '}
-                    <span className="text-emerald-400">"VIT-AP"</span>
+                    <span className="text-emerald-400">"VIT AP"</span>
                     <span className="text-zinc-400">,</span>
                   </div>
                   <div className="pl-4">

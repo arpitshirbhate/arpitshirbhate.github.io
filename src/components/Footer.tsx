@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
 
         {/* Stack acknowledgement */}
         <div className="text-xs text-zinc-600 font-mono flex items-center gap-1.5">
-          <span>Engineered with React + TS + Framer Motion</span>
+          <span>Engineered with Love ❤️</span>
         </div>
 
         {/* Scroll back to top */}

@@ -24,7 +24,7 @@
 }
 
 @layer base {
-  html {
+  html, body {
     scroll-behavior: smooth;
     font-family: 'Inter', sans-serif;
   }
@@ -60,6 +60,8 @@
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(63, 63, 70, 0.25); /* zinc-700/25 */
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transform: translate3d(0, 0, 0); /* Force GPU composition layer */
+  backface-visibility: hidden;
 }
 
 .glass-card:hover {
@@ -72,15 +74,23 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(63, 63, 70, 0.2);
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 /* Glowing Spotlights */
 .glow-spotlight-emerald {
   background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0) 70%);
+  will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 .glow-spotlight-indigo {
   background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, rgba(99, 102, 241, 0) 70%);
+  will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 /* Grid overlay background style (Linear.app / Vercel style) */
