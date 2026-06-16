@@ -400,6 +400,7 @@ const Hyperspeed: React.FC<{ effectOptions?: HyperspeedEffectOptions }> = ({
       clock!: THREE.Clock;
       assets: any = {};
       disposed = false;
+      isVisible = true;
 
       road!: Road;
       leftCarLights!: CarLights;
@@ -708,6 +709,12 @@ const Hyperspeed: React.FC<{ effectOptions?: HyperspeedEffectOptions }> = ({
 
       tick() {
         if (this.disposed) return;
+
+        if (!this.isVisible) {
+          this.clock.getDelta();
+          requestAnimationFrame(this.tick);
+          return;
+        }
 
         if (!this.hasValidSize) {
           const w = this.container.offsetWidth;
@@ -1258,7 +1265,18 @@ const Hyperspeed: React.FC<{ effectOptions?: HyperspeedEffectOptions }> = ({
     appInstanceRef.current = myApp;
     myApp.loadAssets().then(myApp.init);
 
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (myApp) {
+          myApp.isVisible = entry.isIntersecting;
+        }
+      },
+      { threshold: 0 }
+    );
+    observer.observe(container);
+
     return () => {
+      observer.disconnect();
       if (appInstanceRef.current) {
         appInstanceRef.current.dispose();
         appInstanceRef.current = null;
