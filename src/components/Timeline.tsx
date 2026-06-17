@@ -35,22 +35,12 @@ export const Timeline: React.FC = () => {
     {
       year: '2024 - Present',
       role: 'B.Tech CSE Engineering',
-      company: 'Vellore Institute of Technology, AP',
+      company: 'Vellore Institute of Technology, Andhra Pradesh',
       icon: <GraduationCap className="w-4 h-4" />,
-      description: 'Pursuing undergraduate CS study tracking algorithms, OOP, HDL, and quantitative mathematics. Maintaining stellar performance in engineering modules.',
+      description: 'Pursuing a B.Tech in Computer Science and Engineering with a strong focus on Data Structures & Algorithms, Object-Oriented Programming, Data Science, and Software Development. Consistently maintaining good academic performance while actively contributing to open-source projects and building real-world applications.',
       tags: ['DSA', 'OOPs Theory', 'Verilog', 'Discrete Math'],
       color: 'emerald',
     },
-    {
-      year: 'Jun 2024 - Present',
-      role: 'Independent Developer',
-      company: 'Self-Directed Learning',
-      icon: <BookOpen className="w-4 h-4" />,
-      description: 'Mastered core algorithmic paradigms, Java OOP systems, SQL queries, and complete frontend cycles. Deployed open projects directly to GitHub.',
-      tags: ['Algorithms', 'Java OOP', 'SQL Databases', 'React.js'],
-      color: 'teal',
-    },
-    
   ];
 
   const getColorClasses = (color: 'purple' | 'indigo' | 'teal' | 'emerald') => {
