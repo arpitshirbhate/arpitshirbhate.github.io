@@ -22,7 +22,7 @@ A state-of-the-art, high-fidelity personal CS portfolio and software engineering
 
 ## 🛠️ Technology Stack
 
-* **Core**: React 18, TypeScript, Vite
+* **Core**: React 19, JavaScript (ES6+), Vite
 * **Styling**: Tailwind CSS v4, PostCSS, HSL-tailored dark modes
 * **Animations**: Framer Motion
 * **Iconography**: Lucide React, Custom optimized SVG components
@@ -33,28 +33,27 @@ A state-of-the-art, high-fidelity personal CS portfolio and software engineering
 ## 📂 Repository Directory Structure
 
 ```bash
-d:/New folder/
+arpitshirbhate.github.io/
 ├── dist/                     # Compiled production bundles
 ├── src/
 │   ├── components/
-│   │   ├── About.tsx         # About Me section featuring interactive metrics boxes
-│   │   ├── BackgroundGlow.tsx# Subtle multi-glow radial visual layers
-│   │   ├── CLIConsole.tsx    # Interactive terminal emulator console (triggered via ` key)
-│   │   ├── CodingMetrics.tsx # Live green-themed GitHub contributions calendar
-│   │   ├── Contact.tsx       # Redesigned Contact station with input icons & quick-copy email
-│   │   ├── Footer.tsx        # Structured footer linking active profile accounts
-│   │   ├── Hero.tsx          # Sleek Landing header showcasing CS VIT-AP specialization
-│   │   ├── Navbar.tsx        # Floating glass header panel with menu controls
-│   │   ├── Projects.tsx      # Symmetrical 3-card projects grid featuring canvas flowcharts
-│   │   ├── Skills.tsx        # symmetrical 2x2 tech stack competency microchip grid
-│   │   └── Timeline.tsx      # Symmetrically aligned vertical professional timeline
-│   ├── App.tsx               # Main layout orchestrator imports and section structures
-│   ├── main.tsx              # Application loader entry point
+│   │   ├── About.jsx         # About Me section featuring interactive metrics boxes
+│   │   ├── BackgroundGlow.jsx# Subtle multi-glow radial visual layers
+│   │   ├── CLIConsole.jsx    # Interactive terminal emulator console (triggered via ` key)
+│   │   ├── CodingMetrics.jsx # Live green-themed GitHub contributions calendar
+│   │   ├── Contact.jsx       # Redesigned Contact station with input icons & quick-copy email
+│   │   ├── Footer.jsx        # Structured footer linking active profile accounts
+│   │   ├── Hero.jsx          # Sleek Landing header showcasing CS VIT-AP specialization
+│   │   ├── Navbar.jsx        # Floating glass header panel with menu controls
+│   │   ├── Projects.jsx      # Symmetrical 3-card projects grid featuring canvas flowcharts
+│   │   ├── Skills.jsx        # Symmetrical 2x2 tech stack competency microchip grid
+│   │   └── Timeline.jsx      # Symmetrically aligned vertical professional timeline
+│   ├── App.jsx               # Main layout orchestrator imports and section structures
+│   ├── main.jsx              # Application loader entry point
 │   └── index.css             # Tailwind theme directives, fonts, and global variables
 ├── package.json              # Script directives and node modules dependencies
 ├── postcss.config.js         # PostCSS compiler configurations
-├── tsconfig.json             # TypeScript compile and strictness assertions
-└── vite.config.ts            # Vite compile and asset builder parameters
+└── vite.config.js            # Vite compile and asset builder parameters
 ```
 
 ---
@@ -79,7 +78,7 @@ npm run dev
 ```
 
 ### 4. Compile Production Bundles
-Compiles and bundles the TypeScript and Vite assets into optimized production-ready HTML, CSS, and JS chunks under the `dist/` directory:
+Compiles and bundles the React and Vite assets into optimized production-ready HTML, CSS, and JS chunks under the `dist/` directory:
 ```bash
 npm run build
 ```
@@ -93,6 +92,6 @@ npm run preview
 ---
 
 ## 🎨 Visual Quality Verification
-All components compile with **zero lint warnings** or typescript errors. Visual assets and subagent web previews are saved inside the artifacts directory:
+All components compile with **zero lint warnings**. Visual assets and subagent web previews are saved inside the artifacts directory:
 * **walkthrough.md**: Contains active WebP video walkthroughs of every page section.
 * **final_portfolio_verification_1779814080678.png**: Full-resolution landing preview.
