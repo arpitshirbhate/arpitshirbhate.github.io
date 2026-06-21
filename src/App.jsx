@@ -1,29 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import { BackgroundGlow } from './components/BackgroundGlow';
-import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { About } from './components/About';
-import { Skills } from './components/Skills';
-import { Timeline } from './components/Timeline';
-import { Projects } from './components/Projects';
-import { CodingMetrics } from './components/CodingMetrics';
-import { Contact } from './components/Contact';
-import { Footer } from './components/Footer';
-import { CLIConsole } from './components/CLIConsole';
+import React, { useState, useEffect } from "react";
+import { BackgroundGlow } from "./components/BackgroundGlow";
+import { Navbar } from "./components/Navbar";
+import { Hero } from "./components/Hero";
+import { About } from "./components/About";
+import { Skills } from "./components/Skills";
+import { Timeline } from "./components/Timeline";
+import { Projects } from "./components/Projects";
+import { CodingMetrics } from "./components/CodingMetrics";
+import { Contact } from "./components/Contact";
+import { Footer } from "./components/Footer";
+import { CLIConsole } from "./components/CLIConsole";
 
-const App: React.FC = () => {
+const App = () => {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
 
   // Keyboard shortcut listener to toggle console via the Backtick (`) key
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === '`') {
+    const handleKeyDown = (e) => {
+      if (e.key === "`") {
         e.preventDefault();
         setIsTerminalOpen((prev) => !prev);
       }
     };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   return (
@@ -49,9 +49,9 @@ const App: React.FC = () => {
       <Footer />
 
       {/* Interactive Developer CLI console overlay */}
-      <CLIConsole 
-        isOpen={isTerminalOpen} 
-        onClose={() => setIsTerminalOpen(false)} 
+      <CLIConsole
+        isOpen={isTerminalOpen}
+        onClose={() => setIsTerminalOpen(false)}
       />
     </div>
   );
