@@ -38,8 +38,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo with interactive glowing state */}
           <a href="#" className="flex items-center gap-2 group">
-            <span className="text-xl font-display font-black tracking-tight text-white group-hover:text-emerald-400 transition-colors">
-              ARPIT<span className="text-emerald-400 font-extrabold">.</span>SHIRBHATE
+            <span className="text-xl font-display font-black tracking-tight text-white group-hover:text-primary transition-colors">
+              ARPIT<span className="text-primary font-extrabold">.</span>SHIRBHATE
             </span>
           </a>
 
@@ -52,7 +52,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
                 className="text-sm font-medium text-zinc-400 hover:text-white transition-colors relative group py-2"
               >
                 {link.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-400 transition-all duration-300 group-hover:w-full" />
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
           </div>
@@ -61,8 +61,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
           <div className="hidden md:flex items-center gap-4">
             <button 
               onClick={onOpenTerminal}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-zinc-800 bg-zinc-900/60 hover:bg-zinc-800 hover:border-emerald-500/30 text-xs font-mono text-zinc-400 hover:text-emerald-400 transition-all"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-zinc-800 bg-zinc-900/60 hover:bg-zinc-800 hover:border-primary-dark/30 text-xs font-mono text-zinc-400 hover:text-primary transition-all"
               title="Launch Developer CLI"
+              aria-label="Launch Developer Console"
+              aria-haspopup="dialog"
             >
               <TerminalIcon className="w-3.5 h-3.5" />
               <span>Console</span>
@@ -71,7 +73,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
             
             <a 
               href="#contact" 
-              className="flex items-center gap-1 text-xs font-semibold text-zinc-950 bg-emerald-400 hover:bg-emerald-300 px-4 py-2 rounded-lg transition-all shadow-lg shadow-emerald-400/10 hover:shadow-emerald-400/25"
+              className="flex items-center gap-1 text-xs font-semibold text-zinc-950 bg-primary hover:bg-primary-light px-4 py-2 rounded-lg transition-all shadow-lg shadow-primary/10 hover:shadow-primary/25"
             >
               <span>Get in Touch</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -82,13 +84,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
           <div className="md:hidden flex items-center gap-3">
             <button 
               onClick={onOpenTerminal}
-              className="p-2 rounded-lg border border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:text-emerald-400"
+              className="w-11 h-11 flex items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:text-primary"
+              aria-label="Launch Developer Console"
+              aria-haspopup="dialog"
             >
               <TerminalIcon className="w-4 h-4" />
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg border border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:text-white"
+              className="w-11 h-11 flex items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:text-white"
+              aria-label="Toggle Navigation Menu"
+              aria-expanded={isOpen}
+              aria-controls="mobile-nav-menu"
             >
               {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -97,13 +104,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
 
         {/* Mobile Navigation Drawer */}
         {isOpen && (
-          <div className="md:hidden absolute top-[100%] left-0 right-0 glass-nav border-t border-zinc-900/80 p-6 flex flex-col gap-5 slide-in-bottom">
+          <div id="mobile-nav-menu" className="md:hidden absolute top-[100%] left-0 right-0 glass-nav border-t border-zinc-900/80 p-6 flex flex-col gap-5 slide-in-bottom">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="text-base font-semibold text-zinc-300 hover:text-emerald-400 transition-colors"
+                className="text-base font-semibold text-zinc-300 hover:text-primary transition-colors"
               >
                 {link.label}
               </a>
@@ -112,7 +119,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal }) => {
             <a 
               href="#contact"
               onClick={() => setIsOpen(false)}
-              className="flex items-center justify-center gap-2 text-sm font-bold text-zinc-950 bg-emerald-400 hover:bg-emerald-300 py-3 rounded-xl transition-all shadow-lg"
+              className="flex items-center justify-center gap-2 text-sm font-bold text-zinc-950 bg-primary hover:bg-primary-light py-3 rounded-xl transition-all shadow-lg"
             >
               <span>Get in Touch</span>
               <ArrowUpRight className="w-4 h-4" />

@@ -9,7 +9,7 @@ export const About: React.FC = () => {
         
         {/* Section Title */}
         <div className="flex flex-col mb-12">
-          <div className="flex items-center gap-2 mb-2 text-emerald-400 text-xs font-mono font-semibold tracking-widest uppercase">
+          <div className="flex items-center gap-2 mb-2 text-primary text-xs font-mono font-semibold tracking-widest uppercase">
             <User className="w-4 h-4" />
             <span>01 / ABOUT ME</span>
           </div>
@@ -32,18 +32,18 @@ export const About: React.FC = () => {
             </p>
 
             <div className="grid grid-cols-2 gap-4 pt-4">
-              <div className="p-4 rounded-xl border border-zinc-900 bg-zinc-900/40 hover:bg-zinc-900/60 hover:border-emerald-500/20 transition-all group/card flex flex-col justify-between">
+              <div className="p-4 rounded-xl border border-zinc-900 bg-zinc-900/40 hover:bg-zinc-900/60 hover:border-primary-dark/20 transition-all group/card flex flex-col justify-between">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-display">4+ Stacks</span>
-                  <Code2 className="w-5 h-5 text-emerald-500/40 group-hover/card:text-emerald-400 transition-colors" />
+                  <span className="text-2xl sm:text-3xl font-extrabold text-primary font-display">4+ Stacks</span>
+                  <Code2 className="w-5 h-5 text-primary-dark/40 group-hover/card:text-primary transition-colors" />
                 </div>
                 <p className="text-[10px] text-zinc-500 font-mono group-hover/card:text-zinc-400 transition-colors">Python, Java, DS, SQL</p>
               </div>
               
-              <div className="p-4 rounded-xl border border-zinc-900 bg-zinc-900/40 hover:bg-zinc-900/60 hover:border-indigo-500/20 transition-all group/card flex flex-col justify-between">
+              <div className="p-4 rounded-xl border border-zinc-900 bg-zinc-900/40 hover:bg-zinc-900/60 hover:border-secondary-dark/20 transition-all group/card flex flex-col justify-between">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-2xl sm:text-3xl font-extrabold text-indigo-400 font-display">15+ Repos</span>
-                  <Cpu className="w-5 h-5 text-indigo-500/40 group-hover/card:text-indigo-400 transition-colors" />
+                  <span className="text-2xl sm:text-3xl font-extrabold text-secondary font-display">15+ Repos</span>
+                  <Cpu className="w-5 h-5 text-secondary-dark/40 group-hover/card:text-secondary transition-colors" />
                 </div>
                 <p className="text-[10px] text-zinc-500 font-mono group-hover/card:text-zinc-400 transition-colors">ML, NLP & Web Cores</p>
               </div>

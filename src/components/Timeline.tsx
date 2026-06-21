@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Users, BookOpen, GitPullRequest, GraduationCap } from 'lucide-react';
+import { Calendar, Users, GitPullRequest, GraduationCap } from 'lucide-react';
 
 interface TimelineItem {
   year: string;
@@ -66,12 +66,12 @@ export const Timeline: React.FC = () => {
           tag: 'group-hover:text-teal-400 group-hover:border-teal-500/10',
           text: 'text-teal-400',
         };
-      default: // emerald
+      default: // emerald (mapped to primary)
         return {
-          dot: 'group-hover:border-emerald-400 group-hover:shadow-emerald-500/30 text-emerald-400 border-emerald-500/20 bg-emerald-950/10',
-          card: 'hover:border-emerald-500/20 hover:shadow-emerald-500/5',
-          tag: 'group-hover:text-emerald-400 group-hover:border-emerald-500/10',
-          text: 'text-emerald-400',
+          dot: 'group-hover:border-primary group-hover:shadow-primary/30 text-primary border-primary-dark/20 bg-primary-dark/10',
+          card: 'hover:border-primary-dark/20 hover:shadow-primary/5',
+          tag: 'group-hover:text-primary group-hover:border-primary-dark/10',
+          text: 'text-primary',
         };
     }
   };
@@ -82,7 +82,7 @@ export const Timeline: React.FC = () => {
 
         {/* Section Header */}
         <div className="flex flex-col mb-16 text-center items-center">
-          <div className="flex items-center gap-2 mb-2 text-emerald-400 text-xs font-mono font-semibold tracking-widest uppercase">
+          <div className="flex items-center gap-2 mb-2 text-primary text-xs font-mono font-semibold tracking-widest uppercase">
             <Calendar className="w-4 h-4" />
             <span>03 / MILESTONES</span>
           </div>

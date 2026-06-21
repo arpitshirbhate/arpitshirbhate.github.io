@@ -71,7 +71,7 @@ export const Contact: React.FC = () => {
 
         {/* Section Title */}
         <div className="flex flex-col mb-16 items-center text-center">
-          <div className="flex items-center gap-2 mb-2 text-emerald-400 text-xs font-mono font-semibold tracking-widest uppercase">
+          <div className="flex items-center gap-2 mb-2 text-primary text-xs font-mono font-semibold tracking-widest uppercase">
             <Mail className="w-4 h-4" />
             <span>07 / CONNECT</span>
           </div>
@@ -99,9 +99,9 @@ export const Contact: React.FC = () => {
               <div className="space-y-4 pt-4">
                 <a
                   href="mailto:arpitshirbhate4@gmail.com"
-                  className="flex items-center gap-3 text-zinc-400 hover:text-emerald-400 transition-colors"
+                  className="flex items-center gap-3 text-zinc-400 hover:text-primary transition-colors"
                 >
-                  <Mail className="w-4 h-4 text-emerald-400" />
+                  <Mail className="w-4 h-4 text-primary" />
                   <span className="text-sm font-mono">arpitshirbhate4@gmail.com</span>
                 </a>
               </div>
@@ -111,11 +111,12 @@ export const Contact: React.FC = () => {
             <div className="space-y-6 mt-12 lg:mt-0">
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="https://github.com/arpit-shirbhate"
+                  href="https://github.com/arpit2006"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center justify-center p-3 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 transition-all"
                   title="GitHub Profile"
+                  aria-label="GitHub Profile"
                 >
                   <GithubIcon className="w-5 h-5" />
                 </a>
@@ -123,8 +124,9 @@ export const Contact: React.FC = () => {
                   href="https://linkedin.com/in/arpit-shirbhate"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-center p-3 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-indigo-400 hover:border-zinc-700 transition-all"
+                  className="flex items-center justify-center p-3 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-secondary hover:border-zinc-700 transition-all"
                   title="LinkedIn Profile"
+                  aria-label="LinkedIn Profile"
                 >
                   <LinkedinIcon className="w-5 h-5" />
                 </a>
@@ -132,8 +134,10 @@ export const Contact: React.FC = () => {
 
               {/* PDF CV/Resume download button */}
               <a
-                href="#"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-emerald-500/20 bg-emerald-500/5 hover:bg-emerald-500/10 text-emerald-400 text-sm font-semibold transition-all w-full sm:w-auto"
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-primary-dark/20 bg-primary-dark/5 hover:bg-primary-dark/10 text-primary text-sm font-semibold transition-all w-full sm:w-auto"
               >
                 <Download className="w-4 h-4" />
                 <span>Download Professional Resume</span>
@@ -147,7 +151,7 @@ export const Contact: React.FC = () => {
 
               {submitted ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center space-y-4">
-                  <CheckCircle2 className="w-16 h-16 text-emerald-400 animate-bounce" />
+                  <CheckCircle2 className="w-16 h-16 text-primary animate-bounce" />
                   <h3 className="text-xl sm:text-2xl font-bold font-display text-white">Transmission Successful</h3>
                   <p className="text-zinc-400 text-sm max-w-xs">
                     Thank you! Your message was received successfully. I will get back to you shortly.
@@ -157,22 +161,24 @@ export const Contact: React.FC = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-xs font-mono font-bold text-zinc-400 uppercase">Your Name</label>
+                      <label htmlFor="contact-name" className="text-xs font-mono font-bold text-zinc-400 uppercase">Your Name</label>
                       <input
+                        id="contact-name"
                         type="text"
                         required
-                        className="w-full bg-zinc-950/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-200 outline-none focus:border-emerald-500/50 transition-all"
+                        className="w-full bg-zinc-950/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-200 outline-none focus:border-primary/50 transition-all"
                         placeholder="John Doe"
                         value={formState.name}
                         onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-xs font-mono font-bold text-zinc-400 uppercase">Your Email</label>
+                      <label htmlFor="contact-email" className="text-xs font-mono font-bold text-zinc-400 uppercase">Your Email</label>
                       <input
+                        id="contact-email"
                         type="email"
                         required
-                        className="w-full bg-zinc-950/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-200 outline-none focus:border-emerald-500/50 transition-all"
+                        className="w-full bg-zinc-950/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-200 outline-none focus:border-primary/50 transition-all"
                         placeholder="john@example.com"
                         value={formState.email}
                         onChange={(e) => setFormState({ ...formState, email: e.target.value })}
@@ -181,11 +187,12 @@ export const Contact: React.FC = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-xs font-mono font-bold text-zinc-400 uppercase">Message</label>
+                    <label htmlFor="contact-message" className="text-xs font-mono font-bold text-zinc-400 uppercase">Message</label>
                     <textarea
+                      id="contact-message"
                       rows={5}
                       required
-                      className="w-full bg-zinc-950/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-200 outline-none focus:border-emerald-500/50 transition-all resize-none"
+                      className="w-full bg-zinc-950/60 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-200 outline-none focus:border-primary/50 transition-all resize-none"
                       placeholder="Hi Arpit, I would love to talk about an internship role..."
                       value={formState.message}
                       onChange={(e) => setFormState({ ...formState, message: e.target.value })}
@@ -202,7 +209,7 @@ export const Contact: React.FC = () => {
                   <button
                     type="submit"
                     disabled={isSending}
-                    className="flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-xl bg-emerald-400 hover:bg-emerald-300 disabled:bg-zinc-800 disabled:text-zinc-500 disabled:cursor-not-allowed text-zinc-950 text-sm font-bold transition-all shadow-lg hover:shadow-emerald-400/20"
+                    className="flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-xl bg-primary hover:bg-primary-light disabled:bg-zinc-800 disabled:text-zinc-500 disabled:cursor-not-allowed text-zinc-950 text-sm font-bold transition-all shadow-lg hover:shadow-primary/20"
                   >
                     {isSending ? (
                       <>

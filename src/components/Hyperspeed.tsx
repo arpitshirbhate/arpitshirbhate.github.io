@@ -731,13 +731,7 @@ const Hyperspeed: React.FC<{ effectOptions?: HyperspeedEffectOptions }> = ({
           }
         }
 
-        if (resizeRendererToDisplaySize(this.renderer, this.setSize)) {
-          const canvas = this.renderer.domElement;
-          if (this.hasValidSize) {
-            this.camera.aspect = canvas.clientWidth / canvas.clientHeight;
-            this.camera.updateProjectionMatrix();
-          }
-        }
+
 
         if (this.hasValidSize) {
           const delta = this.clock.getDelta();
@@ -1236,20 +1230,7 @@ const Hyperspeed: React.FC<{ effectOptions?: HyperspeedEffectOptions }> = ({
       }
     `;
 
-    function resizeRendererToDisplaySize(
-      renderer: THREE.WebGLRenderer,
-      setSize: (w: number, h: number, update?: boolean) => void
-    ) {
-      const canvas = renderer.domElement;
-      const width = canvas.clientWidth;
-      const height = canvas.clientHeight;
-      if (width <= 0 || height <= 0) return false;
-      const needResize = canvas.width !== width || canvas.height !== height;
-      if (needResize) {
-        setSize(width, height, false);
-      }
-      return needResize;
-    }
+
 
     const container = hyperspeedRef.current;
     if (!container) return;

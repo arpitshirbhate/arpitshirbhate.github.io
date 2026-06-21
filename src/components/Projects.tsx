@@ -35,9 +35,9 @@ export const Projects: React.FC = () => {
           <span className="text-[10px] text-zinc-500 uppercase tracking-widest mb-2">SYSTEM FLOW DIAGRAM</span>
           <div className="flex flex-col sm:flex-row items-center gap-2 text-zinc-300 w-full justify-around text-center">
             <div className="px-3 py-2 rounded border border-zinc-800 bg-zinc-900 w-28">User Prompt</div>
-            <ArrowRight className="w-4 h-4 text-emerald-400 rotate-90 sm:rotate-0" />
-            <div className="px-3 py-2 rounded border border-emerald-500/25 bg-emerald-500/5 w-32 text-emerald-400">Multi-LLM Optimizer</div>
-            <ArrowRight className="w-4 h-4 text-emerald-400 rotate-90 sm:rotate-0" />
+            <ArrowRight className="w-4 h-4 text-primary rotate-90 sm:rotate-0" />
+            <div className="px-3 py-2 rounded border border-primary-dark/25 bg-primary-dark/5 w-32 text-primary">Multi-LLM Optimizer</div>
+            <ArrowRight className="w-4 h-4 text-primary rotate-90 sm:rotate-0" />
             <div className="px-3 py-2 rounded border border-zinc-800 bg-zinc-900 w-28">Enhanced Output</div>
           </div>
         </div>
@@ -137,14 +137,15 @@ export const Projects: React.FC = () => {
               <div>
                 {/* Visual Header */}
                 <div className="flex items-center justify-between mb-6">
-                  <div className="p-3 rounded-xl bg-zinc-900 border border-zinc-800 text-emerald-400">
+                  <div className="p-3 rounded-xl bg-zinc-900 border border-zinc-800 text-primary">
                     <FolderGit2 className="w-5 h-5 animate-pulse" />
                   </div>
                   <div className="flex items-center gap-3">
                     <a 
                       href={project.github} 
-                      className="p-2 rounded bg-zinc-950 border border-zinc-900 text-zinc-500 hover:text-white transition-colors"
+                      className="w-11 h-11 flex items-center justify-center rounded bg-zinc-950 border border-zinc-900 text-zinc-500 hover:text-white transition-colors"
                       title="View GitHub Repository"
+                      aria-label={`View GitHub Repository for ${project.title}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -153,8 +154,9 @@ export const Projects: React.FC = () => {
                     {project.live !== '#' && (
                       <a 
                         href={project.live} 
-                        className="p-2 rounded bg-zinc-950 border border-zinc-900 text-zinc-500 hover:text-emerald-400 transition-colors"
+                        className="w-11 h-11 flex items-center justify-center rounded bg-zinc-950 border border-zinc-900 text-zinc-500 hover:text-primary transition-colors"
                         title="View Live Site"
+                        aria-label={`View Live Site for ${project.title}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -165,7 +167,7 @@ export const Projects: React.FC = () => {
                 </div>
 
                 {/* Info Text */}
-                <h3 className="text-xl font-bold font-display text-white group-hover:text-emerald-400 transition-colors">
+                <h3 className="text-xl font-bold font-display text-white group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
                 <p className="text-zinc-400 text-sm mt-3 leading-relaxed">
@@ -189,7 +191,7 @@ export const Projects: React.FC = () => {
               <div className="mt-4 border-t border-zinc-900/60 pt-4">
                 <button
                   onClick={() => setActiveArch(activeArch === idx ? null : idx)}
-                  className="flex items-center gap-2 text-xs font-mono font-bold text-zinc-400 hover:text-emerald-400 transition-colors"
+                  className="flex items-center gap-2 text-xs font-mono font-bold text-zinc-400 hover:text-primary transition-colors"
                 >
                   <Network className="w-3.5 h-3.5" />
                   <span>{activeArch === idx ? 'Close Architecture' : 'View System Architecture'}</span>

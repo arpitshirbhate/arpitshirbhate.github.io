@@ -13,14 +13,14 @@ export const Skills: React.FC = () => {
   const categories: SkillCategory[] = [
     {
       title: 'Programming Languages',
-      icon: <Code2 className="w-5 h-5 text-emerald-400" />,
-      accent: 'border-emerald-500/20 hover:border-emerald-500/40 hover:shadow-emerald-500/5',
+      icon: <Code2 className="w-5 h-5 text-primary" />,
+      accent: 'border-primary-dark/20 hover:border-primary-dark/40 hover:shadow-primary/5',
       skills: ['Python', 'Java', 'C++', 'JavaScript'],
     },
     {
       title: 'Web Technologies',
-      icon: <Globe className="w-5 h-5 text-indigo-400" />,
-      accent: 'border-indigo-500/20 hover:border-indigo-500/40 hover:shadow-indigo-500/5',
+      icon: <Globe className="w-5 h-5 text-secondary" />,
+      accent: 'border-secondary-dark/20 hover:border-secondary-dark/40 hover:shadow-secondary/5',
       skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Next.js', 'TailwindCSS', 'Node.js', ],
     },
     {
@@ -43,7 +43,7 @@ export const Skills: React.FC = () => {
         
         {/* Section Header */}
         <div className="flex flex-col mb-16">
-          <div className="flex items-center gap-2 mb-2 text-indigo-400 text-xs font-mono font-semibold tracking-widest uppercase">
+          <div className="flex items-center gap-2 mb-2 text-secondary text-xs font-mono font-semibold tracking-widest uppercase">
             <Cpu className="w-4 h-4" />
             <span>02 / COMPETENCY</span>
           </div>
@@ -78,7 +78,7 @@ export const Skills: React.FC = () => {
               <div className="grid grid-cols-2 gap-y-3.5 gap-x-2">
                 {cat.skills.map((skill) => (
                   <div key={skill} className="flex items-center gap-2 text-zinc-300 hover:text-white transition-colors">
-                    <CheckCircle className="w-4 h-4 text-emerald-400/80 shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-primary/80 shrink-0" />
                     <span className="text-xs sm:text-sm font-medium tracking-wide">{skill}</span>
                   </div>
                 ))}

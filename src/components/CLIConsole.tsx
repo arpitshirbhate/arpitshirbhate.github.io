@@ -19,14 +19,53 @@ export const CLIConsole: React.FC<CLIConsoleProps> = ({ isOpen, onClose }) => {
   const [isMaximized, setIsMaximized] = useState(false);
   const terminalEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
+  // Keyboard accessibility: Escape key to dismiss & Tab key focus trap
   useEffect(() => {
-    if (isOpen) {
-      setTimeout(() => {
-        inputRef.current?.focus();
-      }, 100);
-    }
-  }, [isOpen]);
+    if (!isOpen) return;
+
+    // Focus input on open
+    const focusTimeout = setTimeout(() => {
+      inputRef.current?.focus();
+    }, 100);
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+        return;
+      }
+
+      if (e.key === 'Tab') {
+        if (!containerRef.current) return;
+        const focusableElements = containerRef.current.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusableElements.length === 0) return;
+        
+        const firstElement = focusableElements[0] as HTMLElement;
+        const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            lastElement.focus();
+            e.preventDefault();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            firstElement.focus();
+            e.preventDefault();
+          }
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      clearTimeout(focusTimeout);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onClose]);
 
   const scrollToBottom = () => {
     terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -114,7 +153,7 @@ export const CLIConsole: React.FC<CLIConsoleProps> = ({ isOpen, onClose }) => {
         break;
       case 'resume':
         newHistory.push('Opening official resume PDF in a new window tab...');
-        window.open('#', '_blank');
+        window.open('/resume.pdf', '_blank');
         break;
       case 'clear':
         setHistory([]);
@@ -135,6 +174,7 @@ export const CLIConsole: React.FC<CLIConsoleProps> = ({ isOpen, onClose }) => {
   };
 
   const parseAnsiLine = (line: string) => {
+    // eslint-disable-next-line no-control-regex
     const parts = line.split(/(\x1b\[\d+m)/);
     let isGreen = false;
     let isCyan = false;
@@ -177,7 +217,7 @@ export const CLIConsole: React.FC<CLIConsoleProps> = ({ isOpen, onClose }) => {
 
           let cls = '';
           if (isRed) cls += ' text-rose-400';
-          if (isGreen) cls += ' text-emerald-400';
+          if (isGreen) cls += ' text-primary';
           if (isYellow) cls += ' text-amber-400';
           if (isBlue) cls += ' text-blue-400';
           if (isMagenta) cls += ' text-purple-400';
@@ -200,6 +240,10 @@ export const CLIConsole: React.FC<CLIConsoleProps> = ({ isOpen, onClose }) => {
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-zinc-950/80 backdrop-blur-md"
         >
           <motion.div
+            ref={containerRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Developer Console"
             initial={{ scale: 0.95, y: 12, opacity: 0 }}
             animate={{ scale: 1, y: 0, opacity: 1 }}
             exit={{ scale: 0.95, y: 12, opacity: 0 }}
@@ -207,7 +251,12 @@ export const CLIConsole: React.FC<CLIConsoleProps> = ({ isOpen, onClose }) => {
             className={`glass-card rounded-xl border border-zinc-800/80 flex flex-col transition-all duration-300 shadow-[0_0_50px_-12px_rgba(16,185,129,0.15)] overflow-hidden ${
               isMaximized ? 'w-full h-full' : 'w-full max-w-3xl h-[480px]'
             }`}
-            onClick={() => inputRef.current?.focus()}
+            onClick={(e) => {
+              // Only focus input if clicking direct terminal areas, not on buttons or other controls
+              if (e.target === e.currentTarget || (e.target as HTMLElement).closest('.flex-1')) {
+                inputRef.current?.focus();
+              }
+            }}
           >
             {/* Terminal Header */}
             <div className="relative flex items-center justify-between px-4 py-3 bg-zinc-900/60 border-b border-zinc-800 select-none">
@@ -215,40 +264,49 @@ export const CLIConsole: React.FC<CLIConsoleProps> = ({ isOpen, onClose }) => {
               <div className="flex items-center gap-2">
                 <button
                   onClick={onClose}
-                  className="w-3 h-3 rounded-full bg-rose-500/80 hover:bg-rose-500 transition-colors flex items-center justify-center group"
-                  title="Close"
+                  className="w-5 h-5 flex items-center justify-center hover:bg-zinc-800/40 rounded-full transition-colors group"
+                  title="Close Console"
+                  aria-label="Close Console"
                 >
-                  <X className="w-1.5 h-1.5 text-rose-950 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span className="w-3 h-3 rounded-full bg-rose-500/80 group-hover:bg-rose-500 flex items-center justify-center transition-colors">
+                    <X className="w-1.5 h-1.5 text-rose-950 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </span>
                 </button>
                 <button
                   onClick={() => setIsMaximized(!isMaximized)}
-                  className="w-3 h-3 rounded-full bg-amber-500/80 hover:bg-amber-500 transition-colors flex items-center justify-center group"
-                  title="Toggle Size"
+                  className="w-5 h-5 flex items-center justify-center hover:bg-zinc-800/40 rounded-full transition-colors group"
+                  title="Toggle Console Size"
+                  aria-label="Toggle Console Size"
                 >
-                  <span className="w-1.5 h-[1px] bg-amber-950 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span className="w-3 h-3 rounded-full bg-amber-500/80 group-hover:bg-amber-500 flex items-center justify-center transition-colors">
+                    <span className="w-1.5 h-[1px] bg-amber-950 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </span>
                 </button>
                 <button
                   onClick={() => setIsMaximized(!isMaximized)}
-                  className="w-3 h-3 rounded-full bg-emerald-500/80 hover:bg-emerald-500 transition-colors flex items-center justify-center group"
-                  title="Maximize"
+                  className="w-5 h-5 flex items-center justify-center hover:bg-zinc-800/40 rounded-full transition-colors group"
+                  title="Maximize Console"
+                  aria-label="Maximize Console"
                 >
-                  <Maximize2 className="w-1.5 h-1.5 text-emerald-950 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span className="w-3 h-3 rounded-full bg-primary-dark/80 group-hover:bg-primary flex items-center justify-center transition-colors">
+                    <Maximize2 className="w-1.5 h-1.5 text-zinc-950 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </span>
                 </button>
               </div>
 
               {/* Title in center */}
               <div className="flex items-center gap-2 absolute left-1/2 transform -translate-x-1/2">
-                <TerminalIcon className="w-3.5 h-3.5 text-emerald-400" />
+                <TerminalIcon className="w-3.5 h-3.5 text-primary" />
                 <span className="text-[11px] font-mono text-zinc-400 font-semibold tracking-wide">bash • arpit@portfolio:~</span>
               </div>
 
               {/* Status indicator badge */}
               <div className="flex items-center gap-2">
                 <span className="relative flex h-1.5 w-1.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary-dark"></span>
                 </span>
-                <span className="text-[9px] font-mono text-emerald-400/80 bg-emerald-500/5 border border-emerald-500/10 px-2 py-0.5 rounded uppercase font-bold tracking-wider">
+                <span className="text-[9px] font-mono text-primary/80 bg-primary-dark/5 border border-primary-dark/10 px-2 py-0.5 rounded uppercase font-bold tracking-wider">
                   online
                 </span>
               </div>
@@ -260,8 +318,8 @@ export const CLIConsole: React.FC<CLIConsoleProps> = ({ isOpen, onClose }) => {
                 // Style user command prompt line
                 if (line.includes('arpit@portfolio:~$')) {
                   return (
-                    <div key={index} className="text-emerald-400 font-bold mb-1.5 flex items-center gap-1.5">
-                      <ChevronRight className="w-3.5 h-3.5 text-emerald-500/60" />
+                    <div key={index} className="text-primary font-bold mb-1.5 flex items-center gap-1.5">
+                      <ChevronRight className="w-3.5 h-3.5 text-primary-dark/60" />
                       {line}
                     </div>
                   );
@@ -279,7 +337,7 @@ export const CLIConsole: React.FC<CLIConsoleProps> = ({ isOpen, onClose }) => {
                 ) {
                   let colorClass = 'text-white font-bold mt-2 mb-1';
                   if (line.startsWith('Welcome')) {
-                    colorClass = 'text-emerald-400 font-bold text-sm sm:text-base mb-1';
+                    colorClass = 'text-primary font-bold text-sm sm:text-base mb-1';
                   } else if (line.startsWith('Type "help"')) {
                     colorClass = 'text-zinc-500 text-xs italic mb-4';
                   }
@@ -311,7 +369,7 @@ export const CLIConsole: React.FC<CLIConsoleProps> = ({ isOpen, onClose }) => {
                 <button
                   key={cmd}
                   onClick={() => handleCommand(cmd)}
-                  className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded bg-zinc-950 border border-zinc-900 hover:border-emerald-500/20 hover:bg-emerald-500/5 text-[10px] sm:text-xs font-mono text-zinc-400 hover:text-emerald-400 transition-all cursor-pointer flex items-center gap-0.5"
+                  className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded bg-zinc-950 border border-zinc-900 hover:border-primary-dark/20 hover:bg-primary-dark/5 text-[10px] sm:text-xs font-mono text-zinc-400 hover:text-primary transition-all cursor-pointer flex items-center gap-0.5"
                 >
                   {cmd === 'clear' ? <Trash2 className="w-2.5 h-2.5" /> : cmd === 'resume' ? <ExternalLink className="w-2.5 h-2.5" /> : null}
                   <span>{cmd}</span>
@@ -321,13 +379,13 @@ export const CLIConsole: React.FC<CLIConsoleProps> = ({ isOpen, onClose }) => {
 
             {/* Terminal Input Line */}
             <div className="flex items-center gap-2 px-4 py-3 bg-zinc-950/80 border-t border-zinc-900/60">
-              <span className="font-mono text-emerald-500 text-xs sm:text-sm font-extrabold select-none flex items-center gap-1">
+              <span className="font-mono text-primary-dark text-xs sm:text-sm font-extrabold select-none flex items-center gap-1">
                 arpit@portfolio:~$
               </span>
               <input
                 ref={inputRef}
                 type="text"
-                className="flex-1 bg-transparent border-none outline-none font-mono text-xs sm:text-sm text-emerald-400 caret-emerald-400 placeholder-emerald-950/60"
+                className="flex-1 bg-transparent border-none outline-none font-mono text-xs sm:text-sm text-primary caret-primary placeholder-primary-dark/30"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}

@@ -91,8 +91,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTerminal }) => {
             className="flex items-center gap-2 mb-6 bg-zinc-900/60 border border-zinc-800 px-3.5 py-1.5 rounded-full backdrop-blur-md"
           >
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-dark"></span>
             </span>
             <span className="text-[11px] font-mono tracking-widest font-bold text-zinc-400 uppercase">
               Available for Internships
@@ -105,7 +105,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTerminal }) => {
             className="text-4xl sm:text-6xl md:text-7xl font-display font-extrabold tracking-tight text-white leading-[1.05] mb-6"
           >
             I build systems that{' '}
-            <span className="bg-gradient-to-r from-emerald-400 to-indigo-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               scale and visualize
             </span>{' '}
             complex data.
@@ -129,7 +129,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTerminal }) => {
           >
             <button
               onClick={onOpenTerminal}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:bg-zinc-800 hover:border-emerald-500/20 text-xs font-mono text-zinc-300 hover:text-emerald-400 transition-all backdrop-blur"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:bg-zinc-800 hover:border-primary-dark/20 text-xs font-mono text-zinc-300 hover:text-primary transition-all backdrop-blur"
             >
               <TerminalIcon className="w-4 h-4" />
               <span>Launch Terminal</span>
@@ -138,7 +138,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTerminal }) => {
              
             <a
               href="#projects"
-              className="flex items-center gap-1 px-5 py-2.5 rounded-lg bg-emerald-400 hover:bg-emerald-300 text-xs font-bold text-zinc-950 transition-all shadow shadow-emerald-400/5 hover:shadow-emerald-400/15"
+              className="flex items-center gap-1 px-5 py-2.5 rounded-lg bg-primary hover:bg-primary-light text-xs font-bold text-zinc-950 transition-all shadow shadow-primary/5 hover:shadow-primary/15"
             >
               <span>Explore Projects</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
