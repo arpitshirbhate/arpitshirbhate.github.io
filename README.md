@@ -1,4 +1,4 @@
-# 🧑‍💻 Premium Developer Portfolio | Arpit Shirbhate
+# Portfolio | Arpit Shirbhate
 
 A state-of-the-art, high-fidelity personal CS portfolio and software engineering brand deck. Built using a modern, interactive, and responsive glassmorphic design system featuring tailored emerald highlights, custom typography, micro-interactions, and a built-in Developer CLI terminal console.
 
